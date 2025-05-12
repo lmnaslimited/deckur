@@ -237,55 +237,25 @@ export default function LENSCRMPitchDeck() {
   
   const slides = [
     // Slide 1: Title Slide
-    // {
-    //   title: "Future-Proof Your Customer Journey with LENS CRM",
-    //   subtitle: "From Lead to Delivery — All in One Unified System",
-    //   presenter: "Presented by: LMNAs",
-    //   content: (
-    //     <div className="flex flex-col items-center justify-center h-full">
-    //       <div className="flex items-center justify-center mb-8">
-    //         <div className="p-4 rounded-full bg-blue-100">
-    //           <Database size={64} className="text-blue-500" />
-    //         </div>
-    //         <div className="mx-4 text-3xl font-bold">+</div>
-    //         <div className="p-4 rounded-full bg-green-100">
-    //           <Boxes size={64} className="text-green-500" />
-    //         </div>
-    //         <div className="mx-4 text-3xl font-bold">+</div>
-    //         <div className="p-4 rounded-full bg-purple-100">
-    //           <Settings size={64} className="text-purple-500" />
-    //         </div>
-    //       </div>
-    //       <div className="text-xl text-center text-gray-600">
-    //         CRM | Project Management | Helpdesk
-    //       </div>
-    //     </div>
-    //   )
-    // },
-
-    
     {
       title: "Future-Proof Your Customer Journey with LENS CRM",
       subtitle: "From Lead to Delivery — All in One Unified System",
       presenter: "Presented by: LMNAs",
       content: (
-        <div className="w-full px-12 py-10">
-          {/* Icons Row */}
-          <div className="flex justify-center items-start gap-8 mb-6">
+        <div className="flex flex-col items-center justify-center h-full">
+          <div className="flex items-center justify-center mb-8">
             <div className="p-4 rounded-full bg-blue-100">
               <Database size={64} className="text-blue-500" />
             </div>
-            <div className="text-3xl font-bold self-center">+</div>
+            <div className="mx-4 text-3xl font-bold">+</div>
             <div className="p-4 rounded-full bg-green-100">
               <Boxes size={64} className="text-green-500" />
             </div>
-            <div className="text-3xl font-bold self-center">+</div>
+            <div className="mx-4 text-3xl font-bold">+</div>
             <div className="p-4 rounded-full bg-purple-100">
               <Settings size={64} className="text-purple-500" />
             </div>
           </div>
-    
-          {/* Labels Below */}
           <div className="text-xl text-center text-gray-600">
             CRM | Project Management | Helpdesk
           </div>
@@ -293,9 +263,7 @@ export default function LENSCRMPitchDeck() {
       )
     },
     
-    
-
-    // // Slide 2: Client's Current Setup (Pipedrive)
+    // Slide 2: Client's Current Setup (Pipedrive)
     {
       title: "Client's Current Setup (Pipedrive)",
       content: (
@@ -343,8 +311,7 @@ export default function LENSCRMPitchDeck() {
       )
     },
     
-    
-    // // Slide 3: LENS Advantage
+    // Slide 3: LENS Advantage
     {
       title: "LENS = CRM + Projects + Service (Unified)",
       subtitle: "LENS Advantage",
@@ -442,7 +409,7 @@ export default function LENSCRMPitchDeck() {
       )
     },
     
-    // // Slide 4: Key Differentiators
+    // Slide 4: Key Differentiators
     {
       title: "Key Differentiators Over Pipedrive",
       content: (
@@ -489,7 +456,7 @@ export default function LENSCRMPitchDeck() {
       )
     },
     
-    // // Slide 5: Real-World Use Case
+    // Slide 5: Real-World Use Case
     {
       title: "Real-World Use Case",
       content: (
@@ -573,7 +540,7 @@ export default function LENSCRMPitchDeck() {
       )
     },
     
-    // // Slide 6: Why LENS for Jasser?
+    // Slide 6: Why LENS for Jasser?
     {
       title: "Why LENS for Jasser?",
       content: (
@@ -650,14 +617,78 @@ export default function LENSCRMPitchDeck() {
     }
   };
   
-
+  return (
+    <div className="flex flex-col h-screen max-h-screen overflow-hidden bg-white">
+      {/* Header */}
+      <div className="bg-white p-4 border-b flex items-center justify-between">
+        <div className="flex items-center">
+          <div className="text-2xl font-bold text-blue-600">LENS CRM</div>
+          <div className="ml-2 text-sm text-gray-500">by LMNAs</div>
+        </div>
+        <div className="text-sm text-gray-500">
+          Slide {currentSlide + 1} of {slides.length}
+        </div>
+      </div>
+      
+      {/* Main Content */}
+      <div className="flex-1 overflow-hidden">
+        <div className="max-w-6xl mx-auto p-8 h-full flex flex-col">
+          <div className="mb-6">
+            <h2 className="text-3xl font-bold text-gray-800">{slides[currentSlide].title}</h2>
+            {slides[currentSlide].subtitle && (
+              <p className="text-xl text-gray-600 mt-2">{slides[currentSlide].subtitle}</p>
+            )}
+            {slides[currentSlide].presenter && (
+              <p className="text-sm text-gray-500 mt-1">{slides[currentSlide].presenter}</p>
+            )}
+          </div>
+          
+          <div className="flex-1 overflow-auto">
+            {slides[currentSlide].content}
+          </div>
+        </div>
+      </div>
+      
+      {/* Footer with navigation */}
+      <div className="bg-white p-4 border-t flex justify-between">
+        <Button 
+          variant="outline"
+          onClick={prevSlide}
+          disabled={currentSlide === 0}
+          className="flex items-center"
+        >
+          <ArrowLeft className="mr-2 h-4 w-4" /> Previous
+        </Button>
+        
+        <div className="flex gap-1">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              className={`w-3 h-3 rounded-full ${
+                index === currentSlide ? "bg-blue-500" : "bg-gray-300"
+              }`}
+              onClick={() => setCurrentSlide(index)}
+            />
+          ))}
+        </div>
+        
+        <Button 
+          onClick={nextSlide}
+          disabled={currentSlide === slides.length - 1}
+          className="flex items-center bg-blue-500 hover:bg-blue-600 text-white"
+        >
+          Next <ArrowRight className="ml-2 h-4 w-4" />
+        </Button>
+      </div>
+    </div>
+  );
 
   // return (
   //   <div className="w-full max-w-4xl mx-auto py-8">
   //     {slides.map((slide, index) => (
   //       <div key={index} className="mb-10">
   //         <div className="w-full flex justify-center">
-  //           <div className="w-[297mm] h-[168mm] overflow-hidden bg-white  p-8 flex flex-col">
+  //           <div className="w-[297mm] h-[168mm] overflow-hidden bg-white shadow border p-8 flex flex-col">
   //             <div className="mb-6">
   //               <h2 className="text-3xl font-bold text-gray-800">{slide.title}</h2>
   //               {slide.subtitle && (
@@ -682,37 +713,4 @@ export default function LENSCRMPitchDeck() {
   //   </div>
   // );
   
-  return (
-    <div className="w-full max-w-4xl mx-auto py-8">
-      {slides.map((slide, index) => (
-        <div key={index} className="mb-10">
-          <div className="w-full flex justify-center">
-            <div className="w-[297mm] h-[168mm] overflow-hidden bg-white p-8">
-              <div className="mb-4">
-                <h2 className="text-3xl font-bold text-gray-800">{slide.title}</h2>
-                {slide.subtitle && (
-                  <p className="text-xl text-gray-600 mt-2">{slide.subtitle}</p>
-                )}
-                {slide.presenter && (
-                  <p className="text-sm text-gray-500 mt-1">{slide.presenter}</p>
-                )}
-              </div>
-  
-              {/* Avoid flex-1, use padding/margin inside content */}
-              <div>
-                {slide.content}
-              </div>
-            </div>
-          </div>
-  
-          {/* Optional page break for PDF rendering */}
-          {index < slides.length - 1 && (
-            <div className="break-after-page" />
-          )}
-        </div>
-      ))}
-    </div>
-  );
-  
-
 }
