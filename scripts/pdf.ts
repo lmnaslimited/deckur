@@ -6,41 +6,41 @@ const path = require('path');
 // Define an asynchronous function to generate a PDF from a webpage
 async function fnGeneratePDF() {
   // Launch a new instance of a headless browser
-  const Browser = await puppeteer.launch();
+  const LdBrowser = await puppeteer.launch();
 
   // Open a new page (tab) in the browser
-  const Page = await Browser.newPage();
+  const LdPage = await LdBrowser.newPage();
 
   // Navigate to the specified URL and wait until the network is idle (no more requests for at least 500 ms)
-  await Page.goto('http://localhost:3000/deck', {
+  await LdPage.goto('http://localhost:3000/deck', {
     waitUntil: 'networkidle0',
   });
 
   // Generate a PDF of the page with specific dimensions and no margins
-  const PdfBuffer = await Page.pdf({
-    width: '297mm', // A3 landscape width
-    height: '168mm', // A3 landscape height
+  const LdPdfBuffer = await LdPage.pdf({
+    width: '297mm', 
+    height: '168mm', 
     printBackground: true, // Include background graphics in the PDF
     margin: { top: '0mm', bottom: '0mm', left: '0mm', right: '0mm' }, // No margins
   });
 
   // Set the viewport size (browser window dimensions); useful if needed for visual rendering before screenshot/PDF
-  await Page.setViewport({
+  await LdPage.setViewport({
     width: 1920,
     height: 1080,
   });
 
   // Define the path to save the PDF file
-  const OutputPath = path.resolve(__dirname, '../public/LENS-deck.pdf');
+  const LdOutputPath = path.resolve(__dirname, '../public/LENS-deck.pdf');
 
   // Write the PDF buffer to the file system at the defined path
-  fs.writeFileSync(OutputPath, PdfBuffer);
+  fs.writeFileSync(LdOutputPath, LdPdfBuffer);
 
   // Close the browser instance to free up resources
-  await Browser.close();
+  await LdBrowser.close();
 
   // Log a confirmation message with the saved PDF path
-  console.log('✅ PDF generated at:', OutputPath);
+  console.log('✅ PDF generated at:', LdOutputPath);
 }
 
 // Invoke the PDF generation function and catch any errors that occur during execution
