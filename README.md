@@ -14,7 +14,7 @@ Then, navigate into the Turbo Repo and clone the `deckur` app:
 
 ```bash
 cd turbo-repo
-git clone https://github.com/lmnas-limited/deckur.git apps/deckur
+pnpm get-app deckur
 ```
 
 ### 2. Install Dependencies
@@ -43,7 +43,7 @@ pnpm build
 
 Use this to preview your prepared decks using **React**.
 
-### 4. Generate PPD File
+### 4. Generate PDF File
 
 Open a new terminal and navigate to the `deckur` app directory again:
 
