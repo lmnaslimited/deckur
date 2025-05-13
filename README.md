@@ -57,7 +57,7 @@ Then run the following command:
 pnpm ts-node scripts/pdf
 ```
 
-This will generate a `.ppd` file inside the `public/` folder of the app.
+This will generate a `.pdf` file inside the `public/` folder of the app.
 
 ---
 
