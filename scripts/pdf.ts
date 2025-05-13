@@ -2,15 +2,15 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 const path = require('path');
 
-async function generatePDF() {
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
+async function fnGeneratePDF() {
+  const Browser = await puppeteer.launch();
+  const Page = await Browser.newPage();
 
-  await page.goto('http://localhost:3000/deck', {
+  await Page.goto('http://localhost:3000/deck', {
     waitUntil: 'networkidle0',
   });
 
-const pdfBuffer = await page.pdf({
+  const PdfBuffer = await Page.pdf({
     width: '297mm',
     height: '168mm',
     printBackground: true,
@@ -18,16 +18,16 @@ const pdfBuffer = await page.pdf({
   });
   
 
-  await page.setViewport({
+  await Page.setViewport({
     width: 1920,
     height: 1080,
   });
 
-  const outputPath = path.resolve(__dirname, '../public/LENS-deck.pdf');
-  fs.writeFileSync(outputPath, pdfBuffer);
+  const OutputPath = path.resolve(__dirname, '../public/LENS-deck.pdf');
+  fs.writeFileSync(OutputPath, PdfBuffer);
 
-  await browser.close();
-  console.log('✅ PDF generated at:', outputPath);
+  await Browser.close();
+  console.log('✅ PDF generated at:', OutputPath);
 }
 
-generatePDF().catch(console.error);
+fnGeneratePDF().catch(console.error);
