@@ -2,18 +2,24 @@
 
 This guide will help you set up and run the **Deckur** app from **LMNAs Limited’s Turbo Repo**.
 
+prerequisites:
+Required package manager: "PNPM"
+Install if not in the system using below command
+ npm install -g pnpm
+
+
 ### 1. Clone the Repositories
 
 First, clone the Turbo Repo from the LMNAs Limited GitHub page:
 
 ```bash
-git clone https://github.com/lmnas-limited/turbo-repo.git
+git clone https://github.com/lmnaslimited/lmnas-turbo.git
 ```
 
-Then, navigate into the Turbo Repo and clone the `deckur` app:
+Then, navigate into the lmnas Turbo and clone the `deckur` app:
 
 ```bash
-cd turbo-repo
+cd lmnas-turbo
 pnpm get-app deckur
 ```
 
@@ -29,19 +35,20 @@ pnpm install
 
 You can run the app in development or build mode:
 
-#### Development Mode
+#### Development Mode(prefered)
 
 ```bash
 pnpm dev
 ```
+(or)
 
 #### Build and Preview
 
 ```bash
 pnpm build
+pnpm start
 ```
 
-Use this to preview your prepared decks using **React**.
 
 ### 4. Generate PDF File
 
