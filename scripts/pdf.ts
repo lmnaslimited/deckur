@@ -12,7 +12,7 @@ async function fnGeneratePDF() {
   const LdPage = await LdBrowser.newPage();
 
   // Navigate to the specified URL and wait until the network is idle (no more requests for at least 500 ms)
-  await LdPage.goto('http://localhost:3000/tank-vision', {
+  await LdPage.goto('http://localhost:3000/deck', {
     waitUntil: 'networkidle0',
   });
 

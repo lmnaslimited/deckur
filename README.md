@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Getting Started with the Deckur App
 
-## Getting Started
+This guide will help you set up and run the **Deckur** app from **LMNAs Limited’s Turbo Repo**.
 
-First, run the development server:
+prerequisites:
+Required package manager: "PNPM"
+Install if not in the system using below command
+ npm install -g pnpm
+
+
+### 1. Clone the Repositories
+
+First, clone the Turbo Repo from the LMNAs Limited GitHub page:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/lmnaslimited/lmnas-turbo.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then, navigate into the lmnas Turbo and clone the `deckur` app:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cd lmnas-turbo
+pnpm get-app deckur
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 2. Install Dependencies
 
-## Learn More
+install dependencies using `pnpm`:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm install
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 3. Run the App
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+You can run the app in development or build mode:
 
-## Deploy on Vercel
+#### Development Mode(prefered)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+pnpm dev
+```
+(or)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+#### Build and Preview
+
+```bash
+pnpm build
+pnpm start
+```
+
+
+### 4. Generate PDF File
+
+Open a new terminal and navigate to the `deckur` app directory again:
+
+```bash
+cd apps/deckur
+```
+
+Then run the following command:
+
+```bash
+pnpm ts-node scripts/pdf
+```
+
+This will generate a `.pdf` file inside the `public/` folder of the app.
+
+---
+
