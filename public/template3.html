@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMNAs AI Leadership LinkedIn Post</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #1e293b;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .linkedin-post {
+            width: 1080px;
+            height: 1080px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 48px;
+            box-sizing: border-box;
+        }
+
+        /* Background Elements */
+        .bg-cube {
+            position: absolute;
+            top: 80px;
+            right: 80px;
+            width: 128px;
+            height: 128px;
+            border: 2px solid #22d3ee;
+            opacity: 0.2;
+            transform: rotate(12deg);
+            background: linear-gradient(135deg, rgba(34, 211, 238, 0.1), transparent);
+        }
+
+        .bg-circle {
+            position: absolute;
+            bottom: 128px;
+            right: 64px;
+            width: 96px;
+            height: 96px;
+            border: 1px solid #22d3ee;
+            border-radius: 50%;
+            opacity: 0.3;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 4px;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        .circle-dot {
+            background: rgba(34, 211, 238, 0.2);
+            border-radius: 2px;
+        }
+
+        .bg-square {
+            position: absolute;
+            bottom: 80px;
+            right: 256px;
+            width: 80px;
+            height: 80px;
+            border: 1px solid #22d3ee;
+            opacity: 0.25;
+            transform: rotate(45deg);
+            background: linear-gradient(to top, rgba(34, 211, 238, 0.1), transparent);
+        }
+
+        /* Dots Pattern */
+        .bg-dots {
+            position: absolute;
+            top: 48px;
+            right: 48px;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 8px;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            background: #22d3ee;
+            border-radius: 50%;
+            opacity: 0.4;
+            animation: pulse 3s infinite;
+        }
+
+        .dot:nth-child(odd) {
+            animation-delay: 0.5s;
+        }
+
+        .dot:nth-child(3n) {
+            animation-delay: 1s;
+        }
+
+        /* Curved Lines */
+        .bg-curves {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 320px;
+            height: 320px;
+            opacity: 0.15;
+        }
+
+        /* Content Sections */
+        .content-top {
+            position: relative;
+            z-index: 10;
+        }
+
+        .content-bottom {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Main Headline */
+        .headline {
+            font-size: 52px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 32px;
+            color: white;
+        }
+
+        .headline-highlight {
+            background: linear-gradient(135deg, #22d3ee, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Key Message */
+        .key-message {
+            font-size: 22px;
+            color: #cbd5e1;
+            font-weight: 500;
+            margin-bottom: 24px;
+            line-height: 1.4;
+        }
+
+        .key-highlight {
+            color: #22d3ee;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #94a3b8;
+            line-height: 1.5;
+            margin-bottom: 48px;
+        }
+
+        .subtitle-emphasis {
+            color: white;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        /* Action Items */
+        .action-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .action-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .checkbox {
+            width: 24px;
+            height: 24px;
+            border: 1px solid #22d3ee;
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+
+        .checkbox::after {
+            content: '✓';
+            color: #22d3ee;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .action-text {
+            color: white;
+            font-size: 18px;
+            line-height: 1.4;
+        }
+
+        .action-bold {
+            font-weight: 700;
+        }
+
+        .action-italic {
+            font-style: italic;
+        }
+
+        /* Bottom Section */
+        .company-message {
+            font-size: 20px;
+            color: #cbd5e1;
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+
+        .company-highlight {
+            color: #22d3ee;
+            font-weight: 700;
+        }
+
+        .company-emphasis {
+            color: white;
+            font-weight: 600;
+        }
+
+        .bottom-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .closing-message {
+            font-size: 22px;
+            color: #22d3ee;
+            font-weight: 600;
+            max-width: 600px;
+        }
+
+        .closing-message .white-text {
+            color: white;
+        }
+
+        .closing-message .italic {
+            font-style: italic;
+        }
+
+        /* Brand Section */
+        .brand {
+            text-align: right;
+        }
+
+        .brand-name {
+            font-size: 48px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #22d3ee, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .brand-tagline {
+            color: #22d3ee;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { 
+                opacity: 0.4; 
+                transform: scale(1); 
+            }
+            50% { 
+                opacity: 0.8; 
+                transform: scale(1.2); 
+            }
+        }
+
+        /* Overlay */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.6) 50%, rgba(15, 23, 42, 0.8) 100%);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="linkedin-post">
+        <!-- Background Elements -->
+        <div class="bg-cube"></div>
+        <div class="bg-circle">
+            <div class="circle-dot"></div>
+            <div class="circle-dot"></div>
+            <div class="circle-dot"></div>
+            <div class="circle-dot"></div>
+            <div class="circle-dot"></div>
+            <div class="circle-dot"></div>
+            <div class="circle-dot"></div>
+            <div class="circle-dot"></div>
+            <div class="circle-dot"></div>
+        </div>
+        <div class="bg-square"></div>
+        
+        <div class="bg-dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        
+        <svg class="bg-curves" viewBox="0 0 320 320">
+            <path d="M 50 270 Q 160 180 270 270" stroke="#22d3ee" stroke-width="2" fill="none"/>
+            <path d="M 50 290 Q 160 200 270 290" stroke="#22d3ee" stroke-width="2" fill="none"/>
+            <path d="M 50 310 Q 160 220 270 310" stroke="#22d3ee" stroke-width="2" fill="none"/>
+        </svg>
+        
+        <!-- Top Content -->
+        <div class="content-top">
+            <div class="headline">
+                🤖 In the Age of AI,<br>
+                What Should <span class="headline-highlight">Leaders</span><br>
+                Really Focus On?
+            </div>
+            
+            <div class="key-message">
+                Not just tech. Not just tools. But <span class="key-highlight">trust, visibility, and culture</span>.
+            </div>
+            
+            <div class="subtitle">
+                Modern ERPs can automate processes. AI can assist decision-making.<br>
+                But <span class="subtitle-emphasis">only leaders</span> can drive alignment.
+            </div>
+            
+            <div class="action-grid">
+                <div class="action-item">
+                    <div class="checkbox"></div>
+                    <div class="action-text">
+                        <span class="action-bold">Drive clarity</span> — not just goals,<br>but how we reach them
+                    </div>
+                </div>
+                
+                <div class="action-item">
+                    <div class="checkbox"></div>
+                    <div class="action-text">
+                        <span class="action-bold">Build culture</span> — where systems<br>are <span class="action-italic">trusted</span> and <span class="action-italic">used</span>
+                    </div>
+                </div>
+                
+                <div class="action-item">
+                    <div class="checkbox"></div>
+                    <div class="action-text">
+                        <span class="action-bold">Empower people</span> — AI is powerful,<br>but only in the hands of the right team
+                    </div>
+                </div>
+                
+                <div class="action-item">
+                    <div class="checkbox"></div>
+                    <div class="action-text">
+                        <span class="action-bold">Focus on outcomes</span> — not just<br>reports, but real impact
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Content -->
+        <div class="content-bottom">
+            <div class="company-message">
+                At <span class="company-highlight">LMNAs</span>, we help leaders make AI and ERP work together — not just for operations,<br>
+                but for <span class="company-emphasis">organizational alignment.</span>
+            </div>
+            
+            <div class="bottom-flex">
+                <div class="closing-message">
+                    🧠 The best systems don't just run workflows.<br>
+                    <span class="white-text">They <span class="italic">amplify leadership</span>.</span>
+                </div>
+                
+                <div class="brand">
+                    <div class="brand-name">LMNAS</div>
+                    <div class="brand-tagline">Modern ERP. Modular Intelligence</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Overlay -->
+        <div class="overlay"></div>
+    </div>
+</body>
+</html>

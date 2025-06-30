@@ -6,7 +6,7 @@ const LMNAsPostVariations = () => {
 
   // Signature Components
   const BrandStrip = () => (
-    <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-blue-500 via-teal-300 to-orange-500 z-10"></div>
+    <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-500 via-teal-300 to-orange-500 z-10"></div>
   );
 
   const DotsPattern = () => (
@@ -90,7 +90,7 @@ const LMNAsPostVariations = () => {
   );
 
   const PostContainer = ({ children, className = '' }) => (
-    <div className={`w-full max-w-2xl mx-auto bg-gradient-to-br from-slate-900 to-black rounded-3xl overflow-hidden relative shadow-2xl ${className}`}>
+    <div className={`w-full max-w-2xl mx-auto bg-gradient-to-br from-slate-900 to-black overflow-hidden relative shadow-2xl ${className}`}>
       <BrandStrip />
       <DotsPattern />
       <LumiGlow />
@@ -226,47 +226,38 @@ const LMNAsPostVariations = () => {
   const CaseStudyPost = () => (
     <PostContainer>
       <div className="p-12 relative z-10">
-        <div className="text-blue-400 font-mono text-sm mb-4 uppercase tracking-wider">
-          📈 Success Story
+        <div className=" text-teal-300 font-mono text-sm mb-4 uppercase tracking-wider">
+          
         </div>
         
-        <h1 className="text-4xl font-black text-white leading-tight mb-6">
-          TechCorp reduces quote time from weeks to hours
-        </h1>
+        <h1 className="text-5xl font-black text-white leading-tight ">
+          Do generic tools fit your <span className="bg-gradient-to-r from-blue-500 via-teal-300 to-orange-500 bg-clip-text text-transparent">engineered-to-order</span> workflow?
+        </h1>  
+        {/* <h1 className="text-lg text-white leading-tight mb-6">
+         What to focus in the Age of <span className="bg-gradient-to-r from-blue-500 via-teal-300 to-orange-500 bg-clip-text text-transparent">AI</span>
+        </h1> */}
+  
         
-        <div className="bg-gradient-to-r from-slate-800/50 to-slate-700/50 p-6 rounded-2xl mb-8 border border-slate-600">
-          <div className="flex items-center mb-4">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-teal-300 rounded-lg flex items-center justify-content mr-4">
-              <span className="text-white font-bold text-lg">TC</span>
-            </div>
-            <div>
-              <div className="text-white font-semibold">TechCorp Manufacturing</div>
-              <div className="text-gray-400 text-sm">Industrial Equipment • 500+ employees</div>
-            </div>
-          </div>
-          <p className="text-gray-300 italic">
-            "LMNAs transformed our quoting process. What used to take our team 2-3 weeks now happens in 4 hours. 
-            Our customers are amazed by our responsiveness."
-          </p>
-          <div className="text-teal-300 text-sm mt-2">— Sarah Chen, Operations Director</div>
-        </div>
-
-        <div className="grid grid-cols-3 gap-6 mb-10">
+         <img 
+    src="/shape.png" 
+    alt="TechCorp success" 
+    className="rounded-xl w-full object-cover"
+  />
+        {/* <div className="grid grid-cols-3 gap-6 mb-10">
           <div className="text-center">
-            <div className="text-3xl font-black text-teal-300 mb-2">87%</div>
-            <div className="text-gray-400 text-sm">Time Reduction</div>
+            <div className="text-3xl font-black text-teal-300 mb-2">Clarity</div>
+            <div className="text-gray-400 text-lg">Drive</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-black text-orange-500 mb-2">$2M</div>
-            <div className="text-gray-400 text-sm">Revenue Increase</div>
+            <div className="text-3xl font-black text-blue-400 mb-2">Culture</div>
+            <div className="text-gray-400 text-lg">Build</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-black text-blue-400 mb-2">99%</div>
-            <div className="text-gray-400 text-sm">Quote Accuracy</div>
+            <div className="text-3xl font-black text-orange-500  mb-2">Outcome</div>
+            <div className="text-gray-400 text-lg">Focus</div>
           </div>
-        </div>
-
-        <CTAButton>Read Full Case Study</CTAButton>
+        
+        </div> */}
         <BrandFooter />
       </div>
     </PostContainer>
