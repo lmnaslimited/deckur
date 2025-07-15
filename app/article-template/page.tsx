@@ -84,7 +84,7 @@ const LMNAsLandscapePoster = () => {
 
   const BrandLogo = ({ className = '' }) => (
     <div className={`${className}`}>
-      <div className="text-5xl font-black text-transparent bg-clip-text text-white">
+      <div className="text-5xl font-black  text-white bg-clip-text ">
         LMNAs
       </div>
       <div className="text-teal-300 font-mono text-lg opacity-80">
@@ -356,15 +356,19 @@ const LMNAsLandscapePoster = () => {
        
         {/* Left Side - Title Section */}
         <div className="">
-          
+          <div className="mb-8">
+            <div className="bg-gradient-to-r from-blue-500 to-teal-400 px-3 py-1.5 rounded-full inline-block">
+              <span className="text-white text-sm font-medium">Thought Leadership</span>
+            </div>
+          </div>
             {/* <span className="text-white text-5xl font-medium">Thought Leadership</span> */}
-          <h1 className="text-6xl lg:text-5xl font-bold text-white leading-tight mb-4">
-            Planning to Hire   {' '}
+          <h1 className="text-6xl lg:text-6xl font-bold text-white leading-tight mb-20">
+            How to Design CPQ Rules {' '}
             <span className="bg-gradient-to-r from-teal-300 to-blue-400 bg-clip-text text-transparent">
-              One More Salesperson for your Electrical Manufacturing Business?
+              Your Team Will Actually Use?
             </span>
           </h1>
-          
+
           {/* Subtitle with diamond accent */}
           {/* <div className="flex items-center space-x-3 mt-3">
             <div className=""></div>
@@ -376,17 +380,32 @@ const LMNAsLandscapePoster = () => {
   </div>
 
   {/* Right Side - 2/3 Image */}
-  <div className="w-full lg:w-6/12 flex justify-center items-end mt-20 mb-12">
+  <div className="w-full lg:w-6/12 flex justify-center items-end mb-20">
     <div className="w-full">
       <img 
-  src="/saleshire.png" 
-  alt="TechCorp success"
-  className="rounded-xl w-full object-cover transform scale-75 pr-10"/>
+      src="/board.png" 
+      alt="TechCorp success" 
+      className="rounded-xl w-full object-cover transform scale-75 pr-10"/>
     </div>
   </div>
-
 </div>
 
+<div className="absolute bottom-10 left-8 z-20">
+        <div className="flex items-center space-x-3">
+          <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-teal-400 rounded-full flex items-center justify-center">
+            <span className="text-white font-bold text-2xl">AG</span>
+          </div>
+          <div>
+            <div className="flex items-center space-x-3 mb-1">
+              <span className="text-white font-medium text-2xl">Arunkumar Ganesan</span>
+              <svg className="w-6 h-6 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </div>
+            <div className="text-teal-300 text-lg font-medium">5 min read</div>
+          </div>
+        </div>
+      </div>
 
       {/* Floating Particles - repositioned to avoid overlaps */}
       <div className="absolute top-1/5 left-1/5 w-1 h-1 bg-blue-400 rounded-full animate-pulse opacity-60"></div>
@@ -426,7 +445,7 @@ const LMNAsLandscapePoster = () => {
 
       
       {/* Brand Logo - Bottom Right */}
-      <div className=" absolute bottom-8 left-8">
+      <div className=" absolute bottom-8 right-8">
         <BrandLogo />
       </div>
       
